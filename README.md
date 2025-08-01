@@ -1,85 +1,114 @@
-# IPL EDA Project
+# IPL Data Analysis Project
 
-This project performs Exploratory Data Analysis (EDA) on Indian Premier League (IPL) cricket data using Python and Jupyter Notebook. The analysis covers team and player performances, match trends, venues, and more.
+A comprehensive data analysis project focused on Indian Premier League (IPL) cricket matches from 2008-2020. This project uses Python and Jupyter Notebook to perform in-depth statistical analysis and visualization of IPL data, providing insights into team performances, player statistics, match outcomes, and various cricket-specific metrics.
+
+## Features
+
+### Team Analysis
+- Overall team performance metrics and rankings
+- Season-wise team performance trends
+- Home ground advantage analysis
+- Team vs Team performance matrix with win percentages
+- Analysis of toss decisions and their impact on match outcomes
+- Highest team totals and successful run chases
+
+### Player Analysis
+- Comprehensive batting statistics
+  - Top run scorers (all-time and season-wise)
+  - Batting averages and strike rates
+  - Analysis of boundaries (4s and 6s)
+  - Century and half-century statistics
+- Detailed bowling analysis
+  - Leading wicket-takers
+  - Economy rates and bowling averages
+  - Analysis of different types of dismissals
+- Player matchups (batsman vs bowler statistics)
+- Fielding statistics including catching efficiency
+
+### Venue and Match Analysis
+- Stadium-wise statistics and trends
+- City-wise cricket performance metrics
+- Detailed analysis of finals and knockout matches
+- Impact of toss decisions on match outcomes
+- Analysis of close matches and decisive factors
 
 ## Dataset
 
-The project uses two main datasets:
+The analysis uses two primary datasets:
 
-- **matches.csv**: Contains match-level information for all IPL matches.
-- **deliveries.csv**: Contains ball-by-ball delivery data for each match.
+- **matches.csv**: Match-level data (located in `data/matches.csv`)
+  - Match metadata (ID, season, date, venue)
+  - Team information (teams, toss, winner)
+  - Match outcomes and statistics
 
-### matches.csv Columns
-
-- `id`: Match ID
-- `season`: IPL season (year)
-- `city`: City where the match was played
-- `date`: Match date
-- `match_type`: Type of match (e.g., League, Final)
-- `player_of_match`: Player awarded as Man of the Match
-- `venue`: Stadium name
-- `team1`, `team2`: Competing teams
-- `toss_winner`: Team that won the toss
-- `toss_decision`: Decision after toss (bat/field)
-- `winner`: Match winner
-- `result`: Result type (runs/wickets)
-- `result_margin`: Margin of victory
-- `target_runs`, `target_overs`: Target for chasing team
-- `super_over`: Was a super over played (Y/N)
-- `method`: Special method (e.g., D/L)
-- `umpire1`, `umpire2`: Umpires
-
-### deliveries.csv Columns
-
-- `match_id`: Match ID (links to matches.csv)
-- `inning`: Inning number (1 or 2)
-- `batting_team`, `bowling_team`: Teams
-- `over`, `ball`: Over and ball number
-- `batter`, `bowler`, `non_striker`: Player names
-- `batsman_runs`: Runs scored by batter
-- `extra_runs`: Extra runs (wides, legbyes, etc.)
-- `total_runs`: Total runs in the ball
-- `extras_type`: Type of extra (if any)
-- `is_wicket`: 1 if wicket fell, else 0
-- `player_dismissed`: Name of dismissed player (if any)
-- `dismissal_kind`: Type of dismissal (caught, bowled, etc.)
-- `fielder`: Fielder involved (if any)
+- **deliveries.csv**: Ball-by-ball data (located in `data/deliveries.csv`)
+  - Detailed delivery information
+  - Batting and bowling statistics
+  - Runs, wickets, and extras data
 
 ## Project Structure
-(The dataset can be downloaded from below mentioned link)
+
 ```
 ipl-eda/
-├── ipl_eda.ipynb
-├── matches.csv
-├── deliveries.csv
-└── README.md
+├── notebooks/
+│   ├── ipl_eda.ipynb        # Main analysis notebook with comprehensive EDA
+│   ├── 01_prediction.ipynb  # Match outcome prediction analysis
+│   ├── 03_live_win_predictor.ipynb  # Live win predictor analysis
+├── data/
+│   ├── matches.csv         # Match-level dataset
+│   ├── deliveries.csv     # Ball-by-ball dataset
+├── ipl_env/               # Python virtual environment
+│   ├── Scripts/           # Environment scripts
+│   ├── Lib/               # Libraries and dependencies
+│   ├── Include/           # Include files
+│   ├── etc/               # Configuration files
+└── README.md              # Project documentation
 ```
 
-## Analysis Performed
+## Key Visualizations
 
-- Data cleaning and preprocessing
-- Team performance analysis (overall wins, finals, home advantage)
-- Player performance (runs, wickets, strike rates, fifties, centuries, etc.)
-- Toss and match result trends
-- Venue and city analysis
-- Dismissal types and fielding analysis
-- Team vs Team win matrix and heatmap
-- Highest team totals and successful chases
-- Year-wise trends and player improvements
+The project includes various statistical visualizations:
+- Team performance bar charts and heatmaps
+- Player performance trend lines
+- Venue and city-wise performance charts
+- Toss decision impact analysis
+- Season-wise trend analysis
+- Player comparison radar charts
+
+## Requirements
+
+- Python 3.x
+- Key libraries:
+  ```sh
+  pip install pandas numpy matplotlib seaborn plotly
+  ```
 
 ## How to Run
 
-1. Install dependencies:
-    ```sh
-    pip install pandas numpy matplotlib seaborn
-    ```
-2. Open `ipl_eda.ipynb` in Jupyter Notebook or VS Code.
-3. Run the notebook cells sequentially.
+1. Clone the repository
+2. Install the required dependencies:
+   ```sh
+   pip install -r requirements.txt
+   ```
+3. Launch Jupyter Notebook or VS Code:
+   ```sh
+   jupyter notebook
+   # or
+   code .
+   ```
+4. Open and run `notebooks/ipl_eda.ipynb` for comprehensive analysis
 
-## Credits
+## Data Sources
 
-- Data sourced from [Kaggle IPL datasets](https://www.kaggle.com/datasets).
-- Dataset Link: (https://www.kaggle.com/datasets/patrickb1912/ipl-complete-dataset-20082020)
-- Analysis and notebook by [Your Name].
+- Dataset: [IPL Complete Dataset 2008-2020](https://www.kaggle.com/datasets/patrickb1912/ipl-complete-dataset-20082020)
+- Source: Kaggle IPL datasets
+
+## Contributing
+
+Feel free to fork the repository and submit pull requests for additional analysis or improvements.
+
+## License
+
+This project is open-source and available under the MIT License.
 
 ---
